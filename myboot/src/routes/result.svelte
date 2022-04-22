@@ -111,53 +111,53 @@ Last Update    : 22/04.2022
 		<span class="badge bg-success">Correct</span>
 		<span class="badge bg-danger">Incorrect</span>
 	</div>
-	<table class="table table-striped mt-2 mx=5 ">
-		<thead>
-			<tr>
-				<th scope="col">No.</th>
-				<th scope="col" class="text-center">Question</th>
-				<th scope="col" class="text-center">Option</th>
-				<th scope="col" class="text-center">Result</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each $question_data as i, j}
+	<div class="table-responsive">
+		<table class="table table-striped mt-2 mx=5 ">
+			<thead>
 				<tr>
-					<th class="align-middle">{j + 1}</th>
-					<td class="text-start text-dark w-100 align-middle" on:click={() => ($id = j)}
-						><a href={'/review'} class="text-dark text-decoration-none">{i.snippet}</a></td
-					>
-
-					<td class="align-middle">
-						{#each JSON.parse(i.content_text).answers as c, d}
-							<td
-								><button
-									class="btn me-4 {`${c.is_correct == 1 ? 'btn-primary' : ''}`} 
-							{`${cor_ans[j] == userselect_ans[j] && userselect_ans[j] == d ? 'btn-success' : ''}`} 
-							{`${cor_ans[j] != userselect_ans[j] && userselect_ans[j] == d ? 'btn-danger' : ''}`}
-
-							">{String.fromCharCode(65 + d)}</button
-								></td
-							>
-						{/each}
-					</td>
-					<td class="align-middle">
-						{#if userselect_ans[j] == null}
-							<div class="text-danger text-start fw-bold">UNATTEMPTED</div>
-						{:else}
-							<div class="text-success text-start fw-bold">ATTEMPTED</div>
-						{/if}
-					</td>
+					<th scope="col">No.</th>
+					<th scope="col" class="text-center">Question</th>
+					<th scope="col" class="text-center">Option</th>
+					<th scope="col" class="text-center">Result</th>
 				</tr>
-			{/each}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				{#each $question_data as i, j}
+					<tr>
+						<th class="align-middle">{j + 1}</th>
+						<td class="text-start text-dark w-100 align-middle" on:click={() => ($id = j)}
+							><a href={'/review'} class="text-dark text-decoration-none">{i.snippet}</a></td
+						>
+						<td class="align-middle">
+							{#each JSON.parse(i.content_text).answers as c, d}
+								<td
+									><button
+										class="btn me-4 {`${c.is_correct == 1 ? 'btn-primary' : ''}`}
+								{`${cor_ans[j] == userselect_ans[j] && userselect_ans[j] == d ? 'btn-success' : ''}`}
+								{`${cor_ans[j] != userselect_ans[j] && userselect_ans[j] == d ? 'btn-danger' : ''}`}
+								">{String.fromCharCode(65 + d)}</button
+									></td
+								>
+							{/each}
+						</td>
+						<td class="align-middle">
+							{#if userselect_ans[j] == null}
+								<div class="text-danger text-start fw-bold">UNATTEMPTED</div>
+							{:else}
+								<div class="text-success text-start fw-bold">ATTEMPTED</div>
+							{/if}
+						</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
 </main>
 <footer
-	class="d-flex align-items-center bottom-0 justify-content-end  w-100 p-2 border-top rounded border-danger bg-light bg-gradient "
+	class="d-flex align-items-center bottom-0 navbar-expand-sm  justify-content-end  p-2 border-top rounded border-danger bg-light bg-gradient "
 >
 	<!-- svelte-ignore a11y-accesskey -->
-	<a href={'/start'}
-		><button class="btn btn-danger pr-5" accesskey="r" on:click={count.set(0)}>RETAKE</button></a
+	<a href={'/'}
+		><button class="btn btn-danger me-3" accesskey="r" on:click={count.set(0)}>RETAKE</button></a
 	>
 </footer>

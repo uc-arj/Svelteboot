@@ -6,8 +6,8 @@
 </script>
 
 <Head />
-<main class="container">
-	<div class="px-2  my-3 text-center">
+<main class="container mb-5 pb-5">
+	<div class="px-2  my-3  text-center">
 		{#each user_data as i, j (i)}
 			{#if current == j}
 				<h5 class="fw-bold text-start mb-3 pb-3">{j + 1}.{JSON.parse(i.content_text).question}</h5>
@@ -36,60 +36,47 @@
 						{/if}
 					{/each}
 				</div>
-				<p class="text-start">{@html JSON.parse(i.content_text).explanation}</p>
+				<p class="text-start pb-4">{@html JSON.parse(i.content_text).explanation}</p>
 			{/if}
 		{/each}
 	</div>
-	<nav class=" fixed-bottom navbar-expand-sm navbar-dark bg-light border border-danger ">
-		<div class="container-fluid">
-			<!-- <div class="navbar-collapse collapse show" id="navbarCollapse" style=""> -->
-			<ul class="navbar-nav float-end mt-2 mb-2 ">
-				<li>
-					<a href={'/result'}>
-						<li class="nav-item">
-							<a class="btn btn-danger me-3" href={'/result'}>Result</a>
-						</li>
-					</a>
-				</li>
-				<li class="nav-item">
-					<!-- svelte-ignore a11y-accesskey -->
-					<button
-						class="btn btn-danger  rounded me-3 "
-						accesskey="p"
-						on:click={() => current--}
-						disabled={current == 0}
-					>
-						Previous
-					</button>
-				</li>
-				<!-- <li class="nav-item">
-					<a class="btn btn-danger me-3" href="#"></a>
-				</li> -->
-				<li class="nav-item">
-					<!-- svelte-ignore a11y-accesskey -->
-					<button
-						class="btn btn-danger rounded me-3"
-						accesskey="n"
-						on:click={() => current++}
-						disabled={current == 10}
-					>
-						Next
-					</button>
-				</li>
-				<li class="nav-item">
-					<!-- svelte-ignore a11y-accesskey -->
-					<a href={'/start'}>
-						<button
-							class="btn btn-danger rounded mx-2 px-3 "
-							on:click={() => count.set(0)}
-							accesskey="r"
-						>
-							Restart
-						</button>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<!-- </div> -->
-	</nav>
 </main>
+<nav class=" fixed-bottom d-flex align-items-center justify-content-end navbar-expand-sm  justify-content-end p-2 navbar-dark bg-light border border-danger ">
+		
+				<a href={'/result'}>
+						<button class="btn btn-danger me-3" href={'/result'}>Result</button>
+				</a>
+			
+				<!-- svelte-ignore a11y-accesskey -->
+				<button
+					class="btn btn-danger  rounded me-3 "
+					accesskey="p"
+					on:click={() => current--}
+					disabled={current == 0}
+				>
+					Previous
+				</button>
+				<p class="m-2"><b>{current + 1} out of 11</b></p>
+			
+				<!-- svelte-ignore a11y-accesskey -->
+				<button
+					class="btn btn-danger rounded me-3"
+					accesskey="n"
+					on:click={() => current++}
+					disabled={current == 10}
+				>
+					Next
+				</button>
+
+			
+				<!-- svelte-ignore a11y-accesskey -->
+				<a href={'/'}>
+					<button
+						class="btn btn-danger rounded mx-2 px-3 "
+						on:click={() => count.set(0)}
+						accesskey="r"
+					>
+						Restart
+					</button>
+				</a>
+</nav>
