@@ -154,7 +154,7 @@ Last Update    : 22/04.2022
 	</div>
 </main>
 <footer
-	class="d-flex align-items-center bottom-0 navbar-expand-sm  justify-content-end  p-2 border-top rounded border-danger bg-light bg-gradient "
+	class="d-flex align-items-center navbar-expand-sm  justify-content-end  p-2 border-top rounded border-danger bg-light bg-gradient "
 >
 	<!-- svelte-ignore a11y-accesskey -->
 	<a href={'/'}
