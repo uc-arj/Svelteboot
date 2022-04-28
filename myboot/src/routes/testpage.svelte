@@ -118,6 +118,7 @@ Last Update    : 22/04.2022
 		</div>
 	{/if}
 	<!-- Button trigger modal -->
+	
 
 	<footer id="footer"
 		class="d-flex align-items-center fixed-bottom navbar-expand-sm border-top rounded border-danger bg-light bg-gradient justify-content-end min-vw-100 flex-wrap p-2"
