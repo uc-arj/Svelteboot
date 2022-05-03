@@ -1,5 +1,5 @@
 <!-- 
-File Name      : test.svelte
+File Name      : testpage.svelte
 Description    : Testkit using Svelte with bootstrap.
 Author         : Arpan Jain
 version        : 1.0
@@ -54,13 +54,13 @@ Last Update    : 22/04.2022
 <Head />
 <main class="border-top border-2 border-danger d-flex align-items-center flex-column">
 	<div class="container mb-5 pb-5 d-flex justify-content-center">
-		<div class="text-justify w-75 h-50 top-0 mb-5 mt-5" class:top={sidebar == true}>
+		<div class="text-justify w-75 h-50 top-0 mb-5 mt-5">
 			{#each user_data as i, j (i)}
 				{#if current == j}
 					<h6>{JSON.parse(i.content_text).question}</h6>
-					<div class=" text-justify d-flex flex-column  overflow-auto">
+					<div class=" text-justify d-flex flex-column mt-3  overflow-auto">
 						{#each JSON.parse(i.content_text).answers as c, d (c)}
-							<label class=" d-flex align-items-center p-1 mt-3 text-wrap" style="cursor:pointer">
+							<label class=" d-flex align-items-center p-1 text-wrap" style="cursor:pointer">
 								<input
 									class="m-2"
 									style="cursor:pointer"
@@ -118,44 +118,43 @@ Last Update    : 22/04.2022
 		</div>
 	{/if}
 	<!-- Button trigger modal -->
-	
 
-	<footer id="footer"
+	<footer
+		id="footer"
 		class="d-flex align-items-center fixed-bottom navbar-expand-sm border-top rounded border-danger bg-light bg-gradient justify-content-end min-vw-100 flex-wrap p-2"
 	>
-		
-			<Counter on:call={timerOut} />
-			<!-- svelte-ignore a11y-accesskey -->
-			<button
-				class=" btn btn-danger text-color-white rounded mx-2 px-3 "
-				accesskey="l"
-				on:click={() => (sidebar = !sidebar)}>List</button
-			>
-			<!-- svelte-ignore a11y-accesskey -->
-			<button
-				class="btn btn-danger text-color-white rounded mx-2 px-3 "
-				accesskey="p"
-				on:click={() => current--}
-				disabled={current == 0}
-			>
-				Previous
-			</button>
-			<p class="m-2"><b>{current + 1} out of 11</b></p>
-			<!-- svelte-ignore a11y-accesskey -->
-			<button
-				class=" btn btn-danger text-color-white rounded  mx-2 px-3"
-				accesskey="n"
-				on:click={() => current++}
-				disabled={current == 10}
-			>
-				Next
-			</button>
-			<!-- svelte-ignore a11y-accesskey -->
-			<button
-				class=" btn btn-danger text-color-white rounded mx-2 px-3 "
-				d
-				accesskey="e"
-				on:click={endTest}>End Test</button
-			>
+		<Counter on:call={timerOut} />
+		<!-- svelte-ignore a11y-accesskey -->
+		<button
+			class=" btn btn-danger text-color-white rounded mx-2 px-3 "
+			accesskey="l"
+			on:click={() => (sidebar = !sidebar)}>List</button
+		>
+		<!-- svelte-ignore a11y-accesskey -->
+		<button
+			class="btn btn-danger text-color-white rounded mx-2 px-3 "
+			accesskey="p"
+			on:click={() => current--}
+			disabled={current == 0}
+		>
+			Previous
+		</button>
+		<p class="m-2"><b>{current + 1} out of 11</b></p>
+		<!-- svelte-ignore a11y-accesskey -->
+		<button
+			class=" btn btn-danger text-color-white rounded  mx-2 px-3"
+			accesskey="n"
+			on:click={() => current++}
+			disabled={current == 10}
+		>
+			Next
+		</button>
+		<!-- svelte-ignore a11y-accesskey -->
+		<button
+			class=" btn btn-danger text-color-white rounded mx-2 px-3 "
+			d
+			accesskey="e"
+			on:click={endTest}>End Test</button
+		>
 	</footer>
 </main>

@@ -26,8 +26,8 @@ Last Update    : 18/04.2022
 					<p class="text-center overflow-hidden border border-danger">{$count} out of 11</p>
 				</div>
 				{#each user as i, j}
-					<p >
-						<li class="pe-auto overflow-hidden text-truncate overflow" style="cursor:pointer" on:click={() => forward('message', j)}><b>{JSON.parse(i.content_text).question}</b></li>
+					<p class="my-2 pb-1" >
+						<li class="pe-auto overflow-hidden text-truncate overflow list-unstyled" style="cursor:pointer" on:click={() => forward('message', j)}><b>{JSON.parse(i.content_text).question}</b></li>
 					</p>
 				{/each}<br />
 			{/if}

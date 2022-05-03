@@ -1,5 +1,5 @@
 <!-- 
-File Name      : $question_data.svelte
+File Name      : result.svelte
 Description    : Testkit using Svelte.
 Author         : Arpan Jain
 version        : 1.0
@@ -9,7 +9,9 @@ Updated Date   : 22/04/2022
 Last Update    : 22/04.2022
 -->
 <script>
-	import { option, count, question_data, id } from '../store';
+	import { onMount } from 'svelte';
+
+	import { option, count, question_data, id, index, dindex } from '../store';
 	import Head from './header.svelte';
 	let total = 11;
 	let attempt_count = $count;
@@ -21,7 +23,6 @@ Last Update    : 22/04.2022
 	let userselect_ans = [];
 	let cor_ans = [];
 	let score;
-	let review_q;
 
 	for (let i = 0; i < $question_data.length; i++) {
 		let answer_index = 0;
@@ -60,6 +61,10 @@ Last Update    : 22/04.2022
 
 	// correct incorrect count
 	score = Math.round((correct_count / total) * 100);
+	onMount(async function () {
+		$index = userselect_ans;
+		$dindex = cor_ans;
+	});
 </script>
 
 <Head />
@@ -134,10 +139,11 @@ Last Update    : 22/04.2022
 									><button
 										class="btn me-4 {`${c.is_correct == 1 ? 'btn-primary' : ''}`}
 								{`${cor_ans[j] == userselect_ans[j] && userselect_ans[j] == d ? 'btn-success' : ''}`}
+								
 								{`${cor_ans[j] != userselect_ans[j] && userselect_ans[j] == d ? 'btn-danger' : ''}`}
 								">{String.fromCharCode(65 + d)}</button
-									></td
-								>
+									>
+								</td>
 							{/each}
 						</td>
 						<td class="align-middle">

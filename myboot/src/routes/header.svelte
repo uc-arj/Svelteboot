@@ -12,5 +12,9 @@ Last Update    : 19/04.2022
 	let src = '../src/image/ucertify.png';
 </script>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white border border-dark"><div class="container-fluid"><a class="position-absolute" href="/">
-	<img src={src} alt="logo"></a> <h3 class="mx-auto">Ucertify Test PrepKit</h3></div></nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border border-dark">
+	<div class="container-fluid">
+		<a class="position-absolute" href="/"><img {src} alt="logo" /></a>
+		<h3 class="mx-auto">Ucertify Test PrepKit</h3> 	 	
+	</div>
+</nav>

@@ -13,3 +13,5 @@ export let count = writable(0);
 export const option=writable([]);
 export const question_data=writable([])
 export let id=writable(0);
+export const index=writable([]);
+export const dindex=writable([]);
